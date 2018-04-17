@@ -7,8 +7,6 @@
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <link rel="stylesheet" href="css/leaflet.css"><link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"><link rel="stylesheet" href="css/L.Control.Locate.min.css">
-        <link rel="stylesheet" href="https://unkpg.com/leaflet@1.0.3/dist/leaflet.css" />
-        <script src="https://unkpg.com/leaflet@1.0.3/dist/leaflet.js"></script>
         <link rel="stylesheet" href="css/qgis2web.css">
         <link rel="stylesheet" href="css/Control.OSMGeocoder.css">
         <link rel="stylesheet" href="css/leaflet-measure.css">
@@ -21,7 +19,8 @@
         }
         </style>
         <title></title>
-   
+    </head>
+    <body>
         <div id="map">
         </div>
         <script src="js/qgis2web_expressions.js"></script>
@@ -42,37 +41,13 @@
         <script src="data/Elementospuntualesnovisitados_4.js"></script>
         <script src="data/ElementoslinealesdelPH_5.js"></script>
         <script src="data/ElementospuntualesdelPH_6.js"></script>
-        <script src="Plugins/Sidebar/L.Control.Sidebar.js"></script>
-     <link rel="stylesheet" href="Plugins/Sidebar/L.Control.Sidebar.css">
-    </head>
-    <body>
         <script>
-             <div id="sidebar">
-         <h3><b> Patrimonio Hidráulico de la Comunidad de Madrid 
-</b></h3>
-
-         <p> El Patrimonio Hidráulico es un conjunto de elementos creados 
-por el ser humano para satisfacer las necesidades derivadas de los 
-recursos hídricos.</p>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
         }).fitBounds([[40.870767021,-3.65662423271],[40.9582977159,-3.52505372732]]);
         var hash = new L.Hash(map);
         map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
         L.control.locate().addTo(map);
-        var sidebar = L.control.sidebar('sidebar', {
-            position: 'left',
-            closeButton: true,
-        });
-            
-            map.addControl(sidebar);
-            
-            setTimeout(function() {
-                sidebar.show();
-            }, 500);
-            map.on('click'), function() {
-                sidebar.hide();
-            });
         var measureControl = new L.Control.Measure({
             primaryLengthUnit: 'meters',
             secondaryLengthUnit: 'kilometers',
@@ -114,7 +89,6 @@ recursos hídricos.</p>
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
-
         function style_Trminosmunicipales_0_0() {
             return {
                 pane: 'pane_Trminosmunicipales_0',
@@ -164,7 +138,6 @@ recursos hídricos.</p>
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
-
         function style_Rios_1_0() {
             return {
                 pane: 'pane_Rios_1',
@@ -208,7 +181,6 @@ recursos hídricos.</p>
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
-
         function style_CarreterasSecundarias_2_0() {
             return {
                 pane: 'pane_CarreterasSecundarias_2',
@@ -252,7 +224,6 @@ recursos hídricos.</p>
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
-
         function style_Autovias_3_0() {
             return {
                 pane: 'pane_Autovias_3',
@@ -293,7 +264,6 @@ recursos hídricos.</p>
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
-
         function style_Elementospuntualesnovisitados_4_0() {
             return {
                 pane: 'pane_Elementospuntualesnovisitados_4',
@@ -346,7 +316,6 @@ recursos hídricos.</p>
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
-
         function style_ElementoslinealesdelPH_5_0() {
             return {
                 pane: 'pane_ElementoslinealesdelPH_5',
@@ -393,7 +362,6 @@ recursos hídricos.</p>
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
-
         function style_ElementospuntualesdelPH_6_0() {
             return {
                 pane: 'pane_ElementospuntualesdelPH_6',
